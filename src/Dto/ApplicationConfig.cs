@@ -18,6 +18,7 @@ namespace scalus.Dto
     {
         [JsonRequired]
         public string Id { get; set; }
+        [JsonRequired]
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -49,6 +50,14 @@ namespace scalus.Dto
 
         public void Validate(List<string> errors)
         {
+            if (string.IsNullOrEmpty(Id))
+            {
+                errors.Add($"Application must have an Id");
+            }
+            if (string.IsNullOrEmpty(Name))
+            {
+                errors.Add($"Application:{Id} must have a name");
+            }
             if (Platforms.Count == 0)
             { 
                 errors.Add($"Application:{Name}({Id}) does not have any platforms defined.");
