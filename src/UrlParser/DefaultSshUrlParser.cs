@@ -25,7 +25,7 @@ namespace scalus.UrlParser
                 Dictionary = dictionary;
         }
 
-        public Regex ScpPattern = new Regex("(([^:]+)://)?((\\S+)@([^:]+)(:(\\d+))?)", RegexOptions.IgnoreCase);
+        public Regex ScpPattern = new Regex("(([^:]+)://)?((.+)@([^:]+)(:(\\d+))?)", RegexOptions.IgnoreCase);
         
         public override IDictionary<Token, string> Parse(string url)
         {

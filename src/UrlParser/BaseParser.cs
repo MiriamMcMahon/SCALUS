@@ -145,7 +145,7 @@ namespace scalus.UrlParser
             }
             Dictionary[property] = val;
         }
-
+        
         protected void GetSafeguardUserValue()
         {
             var match = SafeguardUserPattern.Match(Dictionary[Token.User]);
@@ -174,7 +174,7 @@ namespace scalus.UrlParser
                     var user = Dictionary[Token.TargetUser];
                     user = user.Replace('\\', '~');
                     tempFile = Path.Combine(Path.GetTempPath(),
-                        $"SG-{host}_{user}_{guid}.{ext}");
+                        $"SG-{host}_{user}_{guid}{ext}");
                 }
                 else
                 {
